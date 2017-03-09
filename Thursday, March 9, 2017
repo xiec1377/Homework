@@ -3,3 +3,16 @@ for i : 0 .. 12
     put i, ", " ..
 end for 
 put "13."  
+
+%Touque Assignements Question 2
+
+var integer : int
+
+put "Give me an integer. " ..
+get integer
+for i : 0 .. 13
+    put integer ," x " , i : 2 , " = " , integer * i : 2 , " "
+    
+end for
+
+ 
