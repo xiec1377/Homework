@@ -22,5 +22,17 @@ end for
 colour (purple) 
 put "15." 
 
+%Touque Assignements Question 7 
+
+for i : 1 .. 21 
+    put repeat ("*", i)
+end for 
+
+%Touque Assignements Question 8
+for i : 1 .. 20 
+    put (2*i), " x " , (2*i), " = " , (2*i) ** 2 , " " 
+    
+end for 
+
 
  
