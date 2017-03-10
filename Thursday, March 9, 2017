@@ -5,7 +5,6 @@ end for
 put "13."  
 
 %Touque Assignements Question 2
-
 var integer : int
 
 put "Give me an integer. " ..
@@ -14,5 +13,14 @@ for i : 0 .. 13
     put integer ," x " , i : 2 , " = " , integer * i : 2 , " "
     
 end for
+
+%Touque Assignments Question 4
+for i : 1 .. 14 
+    colour (i) 
+    put i, ", " ..
+end for 
+colour (purple) 
+put "15." 
+
 
  
