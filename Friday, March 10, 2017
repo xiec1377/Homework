@@ -1,0 +1,156 @@
+%Extra Loop Practise Question 1 
+var x : int 
+var n : int
+var y : int := 0
+const ONE := 1
+
+put "Enter the value of integer x. " ..
+get x
+put "Enter the value of integer n. " ..
+get n 
+for i : 1 .. n 
+    y += x**i
+end for 
+put y + ONE
+
+%Extra Loop Practise Question 2
+
+var even1 : int 
+var even2 : int
+
+put "Give me two even integers. " ..
+get even1, even2 
+if even1<even2 then 
+    for i : even1 .. even2 by 2
+        put i, ", " .. 
+    end for 
+elsif even2<even1 then 
+    for i : even2 .. even1 by 2 
+        put i, ", " .. 
+    end for 
+else
+    put "You suck." 
+end if 
+
+
+%Extra Loop Practise Question 3 
+
+var number : int 
+
+put "Give me a whole number. " ..
+get number 
+for i : 1 .. number 
+    if number mod i = 0 then 
+        put number div i, " " ..
+    end if
+end for 
+
+%Extra Loop Practise Question 4. a)
+for i : 1 .. 8
+    put i, " x " , i, " x " , i, " = " , i ** 3, " " 
+end for 
+
+%Extra Loop Practise Question 4. b)
+var x : int := 0
+
+for i : 1 .. 8
+    x += i*i*i
+end for 
+put x
+
+%Extra Loop Practise Question 4. c)
+var x : int
+
+put "What is the largest number you wish to cube starting from 1? " ..
+get x 
+for i : 1 .. x 
+    put i, " x " , i, " x " , i, " = " , i**3, " " 
+end for 
+
+
+%Extra Loop Practise Question 4. d)
+var x : int
+var y : int 
+
+put "What is the largest number you wish to cube starting from 1? " ..
+get x 
+put "What is the smallest number you wish to cube from? " ..
+get y
+for i : y .. x 
+    put i, " x " , i, " x " , i, " = " , i**3, " " 
+end for 
+
+
+%Extra Loop Practise Question 5
+
+var mark : real 
+var total_marks : int := 0
+
+for marks : 1 .. 10
+    put "Give me a percentage of a mark. " ..
+    get mark 
+    if mark >= 70 then
+        total_marks += 1
+    end if 
+end for 
+put total_marks, " marks are over 70%." 
+        
+%Extra Loop Practise Question 6
+
+var temperature : real 
+
+loop
+    put "Give me a temperature in degrees Celsius. " ..
+    get temperature 
+    exit when temperature > 30 
+end loop
+put "Wow, that's hot." 
+  
+        
+%Extra Loop Practise Question 7
+
+var num1, num2 : real 
+var average : real := 0
+const TWO := 2 
+
+loop 
+    put "Give me two numbers. Use a space as a comma. " .. 
+    get num1, num2 
+    exit when num1 = 0 and num2 = 0 
+    average += (num1+num2) / TWO
+    put "The average of " , num1, " and " , num2, " is " , average, "." 
+end loop 
+
+%Extra Loop Practise Question 9 
+
+var integer1, integer2 : int 
+var x : int := 0
+
+put "Enter two positive integers, the first lower than the second. " ..
+get integer1, integer2 
+if integer1 < integer2 then
+    for i : integer1 .. integer2 
+        x += i 
+    end for 
+    put x
+end if 
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
