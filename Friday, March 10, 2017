@@ -121,6 +121,24 @@ loop
     put "The average of " , num1, " and " , num2, " is " , average, "." 
 end loop 
 
+%Extra Loop Practise Question 8 
+
+var year : real := 0
+const J_INTEREST := 1.0125
+const M_INTEREST := 1.02
+const ONE := 1
+var total_max : real := 280
+var total_julia : real := 300
+
+loop
+    year += ONE
+    total_max *= M_INTEREST
+    total_julia *= J_INTEREST
+    exit when total_max > total_julia
+end loop
+put "It will take ", year, " year(s) for Max to earn more than Julia."
+
+
 %Extra Loop Practise Question 9 
 
 var integer1, integer2 : int 
@@ -134,6 +152,24 @@ if integer1 < integer2 then
     end for 
     put x
 end if 
+
+
+%Extra Loop Practise Question 10
+
+var year : real := 0
+var countryA : real := 50000000
+var countryB : real := 70000000 
+const A := 1.03 %Percentage
+const B := 1.02 %Percentage
+
+loop 
+    year += 1
+    countryA *= A
+    countryB *= B
+    exit when countryA > countryB
+end loop 
+put "It will take " , year, " year(s) until country A's population surpasses"
+put "country B's population." 
 
 
 
