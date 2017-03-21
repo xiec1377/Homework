@@ -1,0 +1,97 @@
+%Question a)
+
+for decreasing row : 5 .. 1
+    for i : 1 .. row 
+    put "*" .. 
+    end for
+    put ""
+end for
+
+%Question b)
+
+for decreasing row : 10 .. 2 by 2
+    for i : 1 .. row 
+    put "*" .. 
+    end for
+    put ""
+end for
+
+
+%Question c)
+
+for row : 1 .. 8
+    for i : 1 .. 10
+    put "*" .. 
+    end for
+    put ""
+end for
+
+
+%Question d)
+
+var x : int
+
+put "How many rows of * would you like?" ..
+get x
+for row : 1 .. x
+    for i : 1 .. 10
+    put "*" .. 
+    end for
+    put ""
+end for
+
+
+%Question e)
+const NUMBER_OF_ROWS := 4
+
+for i : 1 .. NUMBER_OF_ROWS
+    for decreasing j : 3 .. i 
+        put " " .. 
+    end for
+    for k : 1 .. i+(i-1)
+        put "$" ..
+    end for
+    put " " 
+end for
+
+
+
+%Question f) 
+const NUMBER_OF_ROWS := 5
+
+for i : 1 .. NUMBER_OF_ROWS %number of rows
+    for decreasing j : 4 .. i %spacing
+        put " " .. 
+    end for
+    for k : 1 .. i
+        put i ..
+    end for
+    put " " 
+end for
+
+
+%Question g) 
+const NUMBER_OF_ROWS := 5
+
+for i : 1 .. NUMBER_OF_ROWS %number of rows
+    for decreasing j : 4 .. i %spacing
+        put " " .. 
+    end for
+    for k : 1 .. i
+        put k ..
+    end for
+        for decreasing k : i-1 .. 1 
+            put k ..
+        end for
+    put " " 
+end for
+
+%Question h) 
+const NUMBER_OF_ROWS := 9
+
+for i : 1 .. NUMBER_OF_ROWS %number of rows
+    for j : 1 .. NUMBER_OF_ROWS
+        put i*j : 3 , " " ..
+    end for
+    put " " 
+end for
