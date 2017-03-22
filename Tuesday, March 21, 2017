@@ -1,0 +1,148 @@
+%Question 1
+var x : int
+
+put "Enter a number. " ..
+get x
+for i : 1 .. x
+    if i mod 4 = 0 then
+        put i, " " .. 
+    end if
+end for
+
+
+%Question 2
+
+var weight : real
+var weight_average : real := 0
+var number_of_packages : int := 0 
+
+loop
+    put "Enter the weight of a package. " ..
+    get weight
+    exit when weight = 0
+    if weight < 0 then
+        put "We're sorry. That is an invalid weight. Please, try again."
+    elsif weight > 0 then
+        weight_average += weight 
+        number_of_packages += 1 
+    end if
+end loop
+weight_average /= number_of_packages 
+put "The average weight of packages is " , weight_average, ". "  
+
+
+%Question 3 
+var height : real 
+var new_height : real := 0
+var measurement : string 
+const CONVERSION := 2.5
+const FEET := 12
+const METRE := 100
+
+put "Enter a height. " ..
+get height 
+put "Is this measured in cm or inches? " ..
+get measurement 
+case measurement of
+    label "cm", "Cm", "CM" :
+        new_height += height/CONVERSION
+        new_height := new_height div FEET
+        put "The height you entered in cm is equal to " , new_height, " feet and " 
+        new_height := new_height mod FEET 
+        put new_height, " inches." 
+    label "inches" , "Inches" , "INCHES" : 
+        new_height += height*CONVERSION
+        new_height := new_height div METRE
+        put "The height you entered in inches is equal to " , new_height, " metres and " 
+        new_height := new_height mod METRE
+        put new_height, " cm."
+end case 
+
+
+
+%Question 4
+var integer : int
+const TEN := 10
+
+put "Enter an integer. " ..
+get integer
+if integer > 0 then
+    for i : 1 .. TEN %number of rows
+        for j : 1 .. TEN
+            put integer * i * j : 6, " " ..
+        end for
+        put " "
+    end for
+else 
+    put "This number is invalid. Please choose an integer." 
+end if 
+   
+
+
+%Question 5 
+var angle1, angle2, angle3 : real
+
+put "Give me three angles of a triangle. " ..
+get angle1, angle2, angle3
+if angle1 > 0 and angle1 < 180 and angle2 > 0 and angle2 < 180 and angle3 > 0 and angle3 < 180 then
+    if angle1 + angle2 + angle3 = 180 then
+        if angle1 = angle2 and angle2 = angle3 then
+            put "This is an equilateral triangle."
+        elsif angle1 = angle2 or angle2 = angle3 or angle3 = angle1 then
+            put "This is a isosceles triangle."
+        elsif angle1 not= angle2 and angle2 not= angle3 then
+            put "This is a scalene triangle."
+        end if
+    else
+        put "The angles must add up to 180." 
+    end if 
+else
+    put "The angle must a positive number between 0 and 180."
+end if
+
+
+%Question 6
+
+var speed_limit, speed : int
+
+loop
+    put "Enter the speed limit. Enter '0' if you wish to exit. " ..
+    get speed_limit
+    exit when speed_limit = 0
+    if speed_limit > 0 then
+        put "Enter the recorded speed of your vehicle. " ..
+        get speed 
+        if speed > speed_limit then
+            if speed - speed_limit <= 20 and speed - speed_limit >= 1 then
+                put "You are speeding and your fine is $100. "
+            elsif speed - speed_limit >= 21 and speed - speed_limit >= 30 then
+                put "You are speeding and your fine is $270. "
+            elsif speed - speed_limit >= 31 then
+                put "You are speeding and your fine is $500. "
+            end if
+        else
+            put "Congratulations, you are within the speed limit! "
+        end if
+    else
+        put "Please input a positive integer. " 
+    end if
+end loop
+
+
+%Question 7
+var weight1, weight2, weight3 : int
+
+put "Enter the weights of the three bowls. Use a space as a comma. " ..
+get weight1, weight2, weight3
+if weight1 > 0 and weight1 < 100 and weight2 > 0 and weight2 < 100 and weight3 > 0 and weight3 < 100 then
+    if weight1 > weight2 and weight2 > weight3 or weight3 > weight2 and weight2 > weight1 then
+        put weight2, " is Mama Bear's bowl."
+    elsif weight2 > weight1 and weight1 > weight3 or weight3 > weight1 and weight1 > weight2 then
+        put weight1, " is Mama Bear's bowl."
+    elsif weight1 > weight3 and weight3 > weight2 or weight2 > weight3 and weight3 > weight1 then
+        put "The bowl with the weight of ", weight3, " is Mama Bear's bowl."
+    end if
+else 
+    put "Please input three positive integers between 0 and 100. " 
+end if 
+
