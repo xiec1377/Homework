@@ -1,0 +1,90 @@
+%Question 1 
+const TEN := 10
+var word : string
+var average_letters : int := 0
+
+for i : 1 .. TEN
+    put "Enter one word. " ..
+    get word 
+    average_letters += length (word)
+end for 
+put "The average amount of letters in your words is " , average_letters / TEN, " words." 
+
+%Question 2
+var word : string
+var average_letters : int := 0
+var amount_of_words : int := 0
+
+put "Enter 'exit' if you wish to exit the program."
+loop
+    put "Enter one word. " ..
+    get word 
+    exit when word = "exit" 
+    amount_of_words += 1
+    average_letters += length (word)
+end loop 
+put "The average amount of letters in your words is " , average_letters / amount_of_words : 0 : 2, " words." 
+
+%Question 3
+
+var speed_limit, speed : string
+
+put "Enter 'exit' if you wish to exit." 
+loop
+    put "Enter the speed limit. " ..
+    get speed_limit
+    exit when speed_limit = "exit"
+    if strintok (speed_limit) then
+        put "Enter the recorded speed of your vehicle. " ..
+        get speed
+        if strintok (speed) then
+            if strint (speed) > strint (speed_limit) then
+                if strint (speed) - strint (speed_limit) <= 20 and strint(speed) - strint (speed_limit) >= 1 then
+                    put "You are speeding and your fine is $100. "
+                elsif strint (speed) - strint (speed_limit) >= 21 and strint(speed) - strint (speed_limit) >= 30 then
+                    put "You are speeding and your fine is $270. "
+                elsif strint (speed) - strint (speed_limit) >= 31 then
+                    put "You are speeding and your fine is $500. "
+                end if
+            else
+                put "Congratulations, you are within the speed limit! "
+            end if
+        else
+            put "Please input a positive integer as the speed of your vehicle." 
+        end if
+    else
+        put "Please input a positive integer as the speed limit. "
+    end if
+end loop
+
+%Question 4
+
+var speed_limit, speed : string
+
+put "Enter 'exit' if you wish to exit." 
+loop
+    put "Enter the speed limit. " ..
+    get speed_limit
+    exit when speed_limit = "exit"
+    if strintok (speed_limit) then
+        put "Enter the recorded speed of your vehicle. " ..
+        get speed
+        if strintok (speed) then
+            if strint (speed) > strint (speed_limit) then
+                if strint (speed) - strint (speed_limit) <= 20 and strint(speed) - strint (speed_limit) >= 1 then
+                    put "You are speeding and your fine is $100. "
+                elsif strint (speed) - strint (speed_limit) >= 21 and strint(speed) - strint (speed_limit) >= 30 then
+                    put "You are speeding and your fine is $270. "
+                elsif strint (speed) - strint (speed_limit) >= 31 then
+                    put "You are speeding and your fine is $500. "
+                end if
+            else
+                put "Congratulations, you are within the speed limit! "
+            end if
+        else
+            put "Please input a positive integer as the speed of your vehicle." 
+        end if
+    else
+        put "Please input a positive integer as the speed limit. "
+    end if
+end loop
