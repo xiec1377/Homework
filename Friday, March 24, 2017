@@ -1,0 +1,72 @@
+%Question 1 
+var word : string 
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+        if length(word) >= 2 then
+            put "The first letter of '" , word, "' is " , word(1), " and the last letter "
+            put "is " , word(*), "."
+        else
+            put "Please enter a word with at least two letters."
+        end if 
+end loop 
+
+%Question 2
+var word : string
+var word_length : int := 0 
+var longest_word : string := ""
+
+for i : 1 .. 10
+    put "Enter a word. " ..
+    get word
+    if word_length < length (word) then
+        word_length := length(word) 
+        longest_word := word
+    end if 
+end for
+put "The longest word is ", longest_word, "." 
+
+%Question 3
+var word : string
+var total_vowels : int := 0
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word)
+    if word (i) = "a" or word (i) = "e" or word (i) = "i" or word (i) = "o" or word (i) = "u" then
+        total_vowels += 1
+    end if
+end for 
+put total_vowels, " vowels are in this word."
+
+%Touque Assignment 6 Question 1 
+var word : string 
+
+put "Enter a word. " ..
+get word 
+for i : 1 .. length (word) 
+    put word(i), " " 
+end for 
+
+%Touque Assignment 6 Question 2
+var word : string 
+
+put "Enter a word. " ..
+get word 
+for decreasing i : length (word) .. 1 
+    put word(i), " " 
+end for 
+
+%Touque Assignment 6 Question 3 
+var word : string 
+
+put "Enter a word. " ..
+get word 
+put word(*), "" ..
+for i : 2 .. length(word) - 1
+    put word(i), "" ..
+end for 
+put word(1)
