@@ -1,0 +1,92 @@
+%Homework Question 1 
+
+var word : string 
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length(word)
+    if not (word(i) = "d") then
+        new_word += word(i)
+    end if 
+end for 
+put "Your word without 'd' is '" , new_word, "'." 
+
+%Homework Question 2 
+
+var word : string 
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length(word)
+    if not(index("aeiouAEIOU", word(i)) not= 0) then
+        new_word += word(i) 
+    end if 
+end for 
+put "Your word without any vowels is '" , new_word, "'." 
+
+%Touque Assignment 6 Question 4
+
+var word : string 
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+if length(word) >= 2 then
+    for i : length(word) div 2 + 1 .. length(word) 
+        new_word += word(i) 
+    end for 
+    for j : 1 .. length(word) div 2 
+        new_word += word(j)
+    end for 
+else 
+    put "Please enter a word with two or more letters."
+end if 
+put "Your new word is '" , new_word, "'."
+
+%Touque Asssignment 6 Question 5
+var word : string
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word)
+    if not(index ("aeiouAEIOU", word (i)) not= 0) then
+        new_word += word(i)
+    else 
+        new_word += "9"
+    end if
+end for
+put "Your new word is '" , new_word, "'."
+
+%Touque Asssignment 6 Question 6
+var word : string
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word)
+    if not(not(index ("aeiouAEIOU", word (i)) not= 0)) then
+        new_word += word(i)
+    else 
+        new_word += "9"
+    end if
+end for
+put "Your new word is '" , new_word, "'."
+
+
+%Touque Asssignment 6 Question 7(incompleted)
+var word : string
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word)
+    if not (index ("aeiou", word (i)) not= 0) then
+        put word (i)
+    else
+        put Str.Upper (")
+    end if
+end for
+
