@@ -1,0 +1,54 @@
+%Touque Assignmemt Question 7 (redo)
+
+var word : string
+var new_word : string := ""
+var number : int := 0
+
+put "Enter a word. " ..
+get word : *
+for i : 1 .. length (word)
+    if index ("aeiou", word (i)) not= 0 then
+        number := ord (word (i)) - ord ("a") + ord ("A")
+        new_word += chr (number)
+    else
+        new_word += word (i)
+    end if
+end for
+put "Your new word is '", new_word, "'."
+
+%Touque Assignmemt Question 8
+
+var word : string
+var new_word : string := ""
+var number : int := 0
+
+put "Enter a word. " ..
+get word : *
+for i : 1 .. length (word)
+    if not(index ("aeiou", word (i)) not= 0) then
+        number := ord (word (i)) - ord ("a") + ord ("A")
+        new_word += chr (number)
+    else
+        new_word += word (i)
+    end if
+end for
+put "Your new word is '", new_word, "'."
+
+%Touque Assignment Question 11 (?)
+var word : string
+var number : int := 0
+var new_word : string := ""
+
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word)
+    number := ord (word (i)) - ord ("a") + ord ("A")
+    for j : length(word) .. number by 2
+        number := ord (number) 
+        new_word += chr(number)
+    end for
+end for
+put "Your new word is '", new_word, "'."
+
+
