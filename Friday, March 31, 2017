@@ -1,3 +1,45 @@
+
+%Touque Assignment Question 15
+
+var number : int
+var word : string
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word) - 1
+    put word (i), " " ..
+end for 
+put word (*) 
+
+%Touque Assignment Question 16 (?)
+var word : string
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word) - 1
+    put word (i), " " ..
+    for j : 1 .. length (word ) - 1
+        put "" .. 
+    end for
+end for
+put word (*)
+
+
+
+%Touque Assignment Question 17 (?)
+var word : string
+
+put "Enter a word. " ..
+get word
+for i : 1 .. length (word) - 1
+    put word (i), " " ..
+    for decreasing j : length (word) - 1 .. 1 
+        put "" .. 
+    end for
+end for
+put word (*)
+
 %Homework Question 1
 var alphabetically_first : string := ""
 var word : string
@@ -265,4 +307,5 @@ loop
         end if 
     end for
 put "Your new word is '" , new_word, "'."
-end loop 
+end loop
+    
