@@ -1,0 +1,268 @@
+%Homework Question 1
+var alphabetically_first : string := ""
+var word : string
+var previous_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if word > previous_word then
+        alphabetically_first := word 
+    end if
+end loop
+put "The first word in your list alphabetically is '", alphabetically_first, "'."
+
+%Homework Question 1.a)
+var alphabetically_last : string := ""
+var word : string
+var previous_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+put "Enter a word. " ..
+get word
+previous_word := word 
+alphabetically_last := word 
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if previous_word < word then
+        alphabetically_last := word
+    end if
+end loop
+put "The last word in your list alphabetically is '", alphabetically_last, "'."
+
+
+
+%Homework Question 1.b)
+var alphabetically_first : string := ""
+var word : string
+var previous_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+put "Enter a word. " ..
+get word
+previous_word := word 
+alphabetically_first := word 
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if previous_word > word then
+        if length (word) = 7 then
+            alphabetically_first := word
+        end if
+    end if
+end loop
+put "The first seven letter word in your list alphabetically is '", alphabetically_first, "'."
+
+%Homework Question 1.b)(incompleted)
+var alphabetically_last : string := ""
+var word : string
+var previous_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+put "Enter a word. " ..
+get word
+previous_word := word 
+alphabetically_last := word 
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if previous_word < word then
+        if length (word) = 3 then
+            alphabetically_last := word
+        end if
+    end if
+end loop
+put "The last three letter word in your list alphabetically is '", alphabetically_last, "'."
+
+
+
+%Homework Question 1.d)
+var longest_word : string := ""
+var word : string
+var word_length : int := 0
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if word_length < length (word) then
+        word_length := length (word)
+        longest_word := word
+    end if
+end loop
+put "The longest word is '" , longest_word, "'."
+
+%Homework Question 1.e)
+var shortest_word : string := ""
+var word : string
+var word_length : int := 0
+
+put "Enter 'exit' if you wish to exit."
+put "Enter a word. " ..
+get word
+word_length := length (word)
+shortest_word := word
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if length (word) < word_length then
+        word_length := length (word)
+        shortest_word := word
+    end if
+end loop
+put "The shortest word is '" , shortest_word, "'."
+
+%Homework Question 1.f)
+var word : string
+var average_length : real := 0
+var number_of_words : int := 0
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    number_of_words += 1
+    average_length += length (word) 
+end loop
+average_length /= number_of_words
+put "The average length of the words entered is " , average_length, " words.”
+
+%Homework Question 1.g)
+var longest_word : string := ""
+var word : string
+var word_length : int := 0
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    if word_length < length (word) then
+        for i : 1 .. length (word)
+            if word (i) = "s" or word (i) = "S" then
+                word_length := length (word)
+                longest_word := word
+            end if
+        end for
+    end if
+end loop
+put "The longest word is '" , longest_word, "'."
+
+
+%Homework Question 2.a) (?)
+var letter : char
+var word : string
+var new_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    new_word := word 
+end loop
+loop
+    put "What letter would you like to remove? " ..
+    get letter
+    exit when letter = "exit"
+    for i : 1 .. length (word)
+        if not (word (i) = letter) then
+            new_word += word (i)
+        end if
+    end for
+end loop
+put "Your new word is '", new_word, "'."
+
+%Homework Question 3
+var word : string
+var new_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    for i : 1 .. length (word) 
+        if not (index ("aeiouAEIOU", word (i)) not= 0) then
+            new_word += "%"
+        else
+            new_word += word (i)
+        end if
+    end for
+end loop
+put "Your new word is '", new_word, "'."
+
+%Homework Question 3.a) 
+var word : string
+var new_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    for i : 1 .. length (word)
+        if word (i) = "r" then
+           new_word += "R"
+        else
+            new_word += word (i)
+        end if
+    end for
+    put "Your new word is '", new_word, "'."
+new_word := “” 
+end loop
+
+
+%Homework Question 3.b)
+var word : string
+var new_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word
+    exit when word = "exit"
+    for i : 1 .. length (word)
+        if word (i) = "d" then
+            new_word += "*"
+        else
+            new_word += word (i)
+        end if
+    end for
+    put "Your new word is '", new_word, "'."
+    new_word := ""
+end loop
+
+
+%Homework Question 3.d)
+var number : int := 0
+var word : string
+var new_word : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word 
+    exit when word = "exit"
+    for i : 1 .. length (word)
+        if word (i) >= "a" and word (i) <= "z" then
+            number := ord (word (i)) - ord("a") + ord ("A") 
+            new_word += chr (number)
+        elsif word (i) >= "A" and word (i) <= "Z" then
+            number := ord(word (i)) + ord("z") - ord ("Z")
+            new_word += chr (number)
+        else
+            new_word += word (i)
+        end if 
+    end for
+put "Your new word is '" , new_word, "'."
+end loop 
