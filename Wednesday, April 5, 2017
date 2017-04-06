@@ -1,0 +1,153 @@
+%Textbook - 11.8 - Exercises pg. 204 Question 1 
+var word : string 
+var average_characters : real := 0
+var total_words : int := 0
+
+for i : 1 .. 10
+    put "Enter a word. " ..
+    get word 
+    for j : 1 .. length (word) 
+        total_words += 1 
+        average_characters += length(word) 
+    end for 
+end for 
+average_characters /= total_words 
+put "The average length of your words is " , average_characters, " letter(s)."
+
+
+%Textbook - 11.8 - Exercises pg. 204 Question 2
+var word : string 
+
+put "Enter 'exit' if you wish to exit."
+loop    
+    put "Enter a word. " ..
+    get word 
+    exit when word = "exit"
+    put word (1), word (*)
+end loop 
+
+%Textbook - 11.8 - Exercises pg. 204 Question 3
+var amount : int 
+
+put "Enter a negative integer if you wish to exit."
+loop
+    put "How many asterisks do you want? " ..
+    get amount 
+    exit when amount < 0 
+    for i : 1 .. amount 
+        put "*", "" ..
+    end for 
+    put ""
+end loop 
+
+%Textbook - 11.8 - Exercises pg. 205 Question 5
+var new_word : string := ""
+var word : string
+var number : int := 0
+
+
+put "Enter a word in lowercase. " ..
+get word
+for i : 1 .. length (word)
+    if word (i) not= "z" then
+        number := ord (word (i)) + 1
+        new_word += chr (number)
+    elsif word (i) = "z" then
+        put chr (number)
+    end if
+end for
+put new_word
+
+
+%Textbook - 11.8 - Exercises pg. 205 Question 6
+var new_word : string := ""
+var word : string
+
+put "Enter a word. " ..
+get word
+for decreasing i : length (word) .. 1
+    new_word += word (i)
+end for
+put new_word 
+
+
+%Textbook - 11.8 - Exercises pg. 205 Question 7 (?)
+var word : string 
+var middle_letter : string := ""
+var middle_number : int := 0
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a word. " ..
+    get word 
+    exit when word = "exit" 
+    for i : 1 .. length (word)
+        if length(word) div 2 = 0 then  
+            put "The word you input has an even number of letters."
+        elsif not(length(word) div 2 = 0) then
+            middle_letter := length(word)
+            middle_number += strint(length(word)) div 2
+        end if 
+    end for
+    put middle_letter
+end loop
+
+%Textbook - 11.8 - Exercises pg. 206 Question 8 (incompleted)
+var number : string
+var word : string
+var pattern : char
+var replacement : char
+var amount_of_pattern : int := 0
+var new_word : string := ""
+
+put "Menu"
+put "1. Count a pattern."
+put "2. Eliminate a pattern."
+put "3. Subsitute a pattern."
+put "4. Exit."
+put "Choose a number from above. " ..
+get number
+if strintok (number) = true then
+    if number = "1" then
+        put "Enter a word. " ..
+        get word
+        put "Enter a single letter pattern. " ..
+        get pattern
+        for i : 1 .. length (word)
+            if index (word (i), pattern) not= 0 then
+                amount_of_pattern += 1
+            end if
+        end for
+        put amount_of_pattern, " time(s) have your pattern repeated throughout the word."
+    elsif number = "2" then
+        put "Enter a word. " ..
+        get word
+        put "Enter a single letter pattern. " ..
+        get pattern
+        for i : 1 .. length (word)
+            if not (index (word (i), pattern) not= 0) then
+                new_word += word (i)
+            end if
+        end for
+        put new_word 
+    elsif number = "3" then
+        put "Enter a word. " ..
+        get word
+        put "Enter a single letter pattern. " ..
+        get pattern
+        put "Enter a single letter pattern replacement. " ..
+        get replacement
+        for i : 1 .. length (word)
+            if index (word (i), pattern) not= 0 then
+                new_word := replacement
+            elsif not(index(word(i), pattern) not= 0) then
+                new_word += word (i)
+            end if
+        end for
+        put new_word
+    elsif number = "4" then
+    end if
+else
+    put "Please input a number."
+end if
+
