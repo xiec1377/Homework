@@ -151,3 +151,53 @@ else
     put "Please input a number."
 end if
 
+April 6, 2017
+%Textbook 11.8 Exercises pg. 206 Question 10
+var string_answer : string
+
+
+put "Enter a string. " ..
+get string_answer : *
+
+for i : 1 .. length (string_answer)
+    if strintok (string_answer (i)) = true then
+        put "'" , string_answer (i), "' is an integer." 
+    elsif index ("aeiouAEIOU", string_answer (i)) not= 0 then
+        put "'", string_answer (i), "' is a vowel."
+    elsif not (index ("aeiouAEIOU", string_answer (i)) not= 0) then
+        put "'", string_answer (i), "' is a constant."
+    else
+        put "This is another type of character." 
+    end if 
+end for 
+
+    
+%Textbook 11.8 Exercises pg. 206 Question 10
+var string_answer : string
+var numbers : string := ""
+var vowels : string := ""
+var constants : string := ""
+var other : string := ""
+
+put "Enter 'exit' if you wish to exit."
+loop
+    put "Enter a string. " ..
+    get string_answer :*
+    exit when string_answer = "exit"
+    for i : 1 .. length (string_answer)
+        if strintok (string_answer (i)) = true then
+            numbers += string_answer (i)
+        elsif index ("aeiouAEIOU", string_answer (i)) not= 0 then
+            vowels += string_answer (i)
+        elsif not (index ("aeiouAEIOU", string_answer (i)) not= 0) then
+            constants += string_answer (i)
+        else
+            other += string_answer (i)
+        end if
+    end for
+    put "Numbers : ", numbers
+    put "Vowels : ", vowels
+    put "Constants : ", constants
+    put "Any other character : ", other
+end loop
+
