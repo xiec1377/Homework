@@ -1,0 +1,55 @@
+%Homework Question 1 
+function subtract(number : real) : real
+    var subtracted_number := number - 5
+    result subtracted_number
+end subtract
+
+%main program 
+var number : real
+
+put "Enter a real number. " ..
+get number 
+put number, " x 3 = " , subtract(number)
+
+%Homework Question 2 
+%function
+function factorial (pos_number : int) : int
+    var fact_number : int := 1
+    for decreasing i : pos_number .. 1
+        fact_number *= i
+    end for
+    result fact_number
+end factorial
+
+%main programf
+var number : int
+
+put "Enter a negative integer if you wish to exit."
+loop
+    put "Enter a postive integer. " ..
+    get number
+    exit when number < 0
+    put "The factorial of this integer is ", factorial (number), "."
+end loop
+
+
+%Homework Question 3 
+%function
+function reverse(word : string) : string
+    var reversed_word : string := ""
+    for decreasing i : length (word) .. 1 
+        reversed_word += word(i)
+    end for 
+    result reversed_word 
+end reverse
+
+%main program
+var word : string 
+
+put "Enter 'exit' if you wish to exit." 
+loop
+    put "Enter a word. " ..
+    get word 
+    exit when word = "exit"
+    put reverse(word)
+end loop 
