@@ -1,0 +1,76 @@
+%Homework Question 1 
+%function
+function metres(length : real) : real
+    var in_metres : real := 0
+    in_metres := length / 100
+    result in_metres
+end metres
+
+%main program
+var length_in_cm : real 
+var new_length : real := 0
+
+put "Enter a length in cm. " ..
+get length_in_cm
+put length_in_cm, " is " , metres(length_in_cm), " m."
+
+%Homework Question 2 
+%function
+
+function find_area(height : real, base : real) : real
+    var area : real := 0
+    area := height * base / 2 
+    result area
+end find_area 
+
+%main program 
+put find_area(5, 7)
+
+
+%Homework Question 3
+%function
+
+function y_value (m : real, x : real, b : real) : real
+    var value_y := m * x + b
+    result value_y
+end y_value
+
+%main program
+var y : real 
+var m, b, x : real
+
+put "Enter the value of the slope (m). " ..
+get m
+put "Enter the value of the y-intercept(b). " ..
+get b
+put "Enter the value of the x coordinate. " ..
+get x
+put "Your y coordinate is ", y_value (m, x, b), "."
+
+%Homework Question 4
+%function
+
+function ast(character : char) : char
+    var ast_char : char := "*"
+    result ast_char
+end ast
+
+%main program
+var word : string 
+var vowel : char 
+var new_word : string := ""
+
+put "Enter a word. " ..
+get word 
+put "What vowel of this word would you want to change? " ..
+get vowel 
+for i : 1 .. length (word) 
+    if word(i) = vowel then
+        new_word += ast(vowel)
+    else
+        new_word += word (i)
+    end if 
+end for 
+put "Your new word is '" , new_word, "'."
+        
+    
