@@ -1,0 +1,121 @@
+%Homework Question 1
+%function
+function isS_s (word : string) : boolean
+    var starts_s : string
+    if word (1) = "s" or word (1) = "S" then
+        result true
+    else
+        result false
+    end if
+end isS_s
+
+%main program
+var word : string
+
+put "Enter a word. " ..
+get word
+
+if isS_s(word) then
+    put "Your word starts with an 's' or 'S'."
+else
+    put "Your word doesn't starts with an 's' or 'S'."
+end if
+
+
+%Homework Question 2
+%function
+function is7 (number : int) : boolean
+    var multiple_7 : int := number
+    if multiple_7 mod 7 = 0 then
+        result true
+    else
+        result false
+    end if
+end is7
+
+%main program
+
+put is7(26) 
+
+%Homework Question 3 (incomplete)
+%function 
+function before(word : string) : string 
+    var word_before : string := word
+    result word_before
+end before
+%function2
+function isPalin(word : string) : boolean
+    var word_palin : string := word 
+    var word_before : string := word 
+    for decreasing i : length (word) .. 1 
+        word_palin += word_before(i) 
+    if word_before(i) = word_palin then
+        result true 
+    else 
+        result false
+    end if 
+    end for 
+end isPalin
+
+%main program
+var word : string  
+
+put "Enter word. " ..
+get word
+if isPalin(word) then
+    put isPalin(word)
+end if 
+
+%Homework Question 4(incompleted)
+%function
+function isDouble (number : real) : real
+    var doubled_number : real := number
+        doubled_number *= 2
+    result doubled_number
+end isDouble
+
+%main program
+var number : real
+const MAX := 10000000
+
+
+put "Enter a number. " ..
+get number
+loop
+    put isDouble (number)
+    exit when isDouble (number) >= MAX
+end loop
+
+%Homework Question 5(incompleted)
+%function
+function glue (word1 : string, word2 : string) : string
+    var glued_word : string := word1
+    glued_word += word2
+    result glued_word
+end glue
+
+%function 2
+function reverse (glued_word : string, word3 : string) : string
+    var reversed_word : string := glued_word
+    for decreasing i : length (word3) .. 1
+        reversed_word += word3 (i)
+    end for
+    result reversed_word
+end reverse
+
+
+
+%main program
+var word1, word2, word3 : string
+
+put "Enter a word. " ..
+get word1
+
+put "Enter another word. " ..
+get word2
+
+put "Enter another word. " ..
+get word3
+
+
+put "Your new word is '", glue (word1, word2), word3, "'."
