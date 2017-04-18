@@ -1,0 +1,101 @@
+%Homework Question 1 
+%procedure
+procedure more (word : string, number : int)
+    var number_of_times : int := number
+    for i : 1 .. number_of_times
+        put word
+    end for 
+end more
+
+%main program 
+
+more("potato", 100)
+
+%Homework Question 2.a)
+%procedure
+procedure stars(line_number : int)
+    for i : 1 .. line_number 
+        put "*****" 
+    end for 
+end stars
+
+%main program
+
+stars(7)
+
+%Homework Question 2.b)
+%procedure
+procedure stars(line_number : int)
+    for i : 1 .. line_number 
+        put "*****" 
+    end for 
+end stars
+
+%main program
+var line_number : int 
+
+put "How many lines of stars do you want? " ..
+get line_number
+stars (line_number) 
+
+%Homework Question 3(incompleted)
+%procedure
+procedure stars (number_rows : int)
+    %first slant
+    for i : 1 .. number_rows - 2 %minus two last rows
+        put "*"
+        for j : i .. number_rows 
+            put ""
+        end for
+    end for
+    for i : 1 .. number_rows - 7
+        put "*"
+        for j : i .. number_rows 
+            put ""
+        end for
+    end for
+end stars
+
+%main program
+stars (7)
+stars (2)
+
+
+%Homework Question 6.a)
+%procedure 
+procedure replace_a(letter : char)
+    if letter = "a" then
+        letter := "aa" 
+    end if 
+end replace_a
+%Question 6.b) 
+%procedure 
+procedure replace_b(letter : char)
+    var new_letter : char 
+    if letter = "b" then
+        new_letter := "c"
+    end if 
+end replace_b
+
+%Question 6.c)
+%procedure 
+procedure replace_random(letter : char, word : string)
+    var new_letter : char
+    for i : 1 .. length(word) 
+        randint (word(i), 1, length_word) 
+    end for
+    new_letter := word(i)
+end replace_random
+
+%main program
+var word : string 
+var new_word : string := ""
+
+put "Enter a string of a's, b's and c's."
+get word
+for i : 1 .. length(word)
+    new_word += replace_a(word)
+    new_word += replace_b(word)
+    new_word += replace_random(word)
+end for 
+put new_word 
