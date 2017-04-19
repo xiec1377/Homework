@@ -1,0 +1,161 @@
+ %Homework Question 1
+%procedure
+procedure rows(number_of_rows : int)
+    for decreasing i : number_of_rows .. 1 
+        put repeat("%", i)..
+        put repeat ("&", i) 
+    end for 
+end rows 
+
+%main program 
+
+rows (5) 
+
+%Homework Question 2
+%procedure
+procedure rows (number_of_rows : int)
+    for i : 1 .. number_of_rows 
+        put repeat ("><", i) 
+    end for
+end rows
+
+%main program
+
+rows (4)
+
+%Homework Question 3
+%procedure
+
+procedure rows (number_of_rows : int)
+    for decreasing i : number_of_rows .. 1 
+        for j : 1 .. number_of_rows - i 
+            put " " ..
+        end for 
+        put repeat ("*", i)
+    end for 
+end rows
+
+%main program
+
+rows (6)
+
+%Homework Question 4 
+%circle area 
+function c_area (radius : real) : real
+    const PI := 3.14
+    var circle_area : real := PI * radius ** 2 
+    result circle_area
+end c_area 
+
+%circle circumference 
+function c_cir (radius : real) : real
+    const PI := 3.14 
+    var circle_circumference : real := 2 * PI * radius
+    result circle_circumference 
+end c_cir
+
+%rectangle area 
+function r_area (Length : real, width : real) : real
+    var rectangle_area : real := Length * width 
+    result rectangle_area
+end r_area 
+
+%rectangle perimeter
+function r_per (Length : real, width : real) : real
+    var rectangle_perimeter : real := (Length + width) * 2 
+    result rectangle_perimeter
+end r_per
+
+%triangle area 
+function t_area (base : real, height : real) : real
+    var triangle_area : real := base * height / 2 
+    result triangle_area
+end t_area 
+
+%triangle perimeter
+function t_per (base : real, side1 : real, side2: real) : real 
+    var triangle_perimeter : real := base + side1 + side2 
+    result triangle_perimeter
+end t_per
+
+%main program 
+var shape : string 
+var radius : real 
+var base_t, height_t, side1, side2 : real
+var width_r, length_r : real
+
+put "Enter a shape. Chose between a circle, rectangle and triangle. " ..
+get shape 
+case shape of
+    label "circle", "Circle", "CIRCLE" : 
+        put "Enter the measurement of the radius. " ..
+        get radius 
+        put "The area is " , c_area (radius), " units sqaured."
+        put "The circumference is " , c_cir (radius), " units." 
+    label "triangle", "Triangle", "TRIANGLE" : 
+        put "Enter the measurement of the base. " ..
+        get base_t
+        put "Enter the measurement of the height. " ..
+        get height_t
+        put "Enter the measurements of the two sides. " ..
+        get side1, side2 
+        put "The area is " , t_area (base_t, height_t), " units squared." 
+        put "The circumference is " , t_per (side1, side2, base_t), " units."
+    label "rectangle", "Rectangle", "RECTANGLE" : 
+        put "Enter the measurement of the width. " ..
+        get width_r
+        put "Enter the measurement of the length. " ..
+        get length_r
+        put "The area is " , r_area (width_r, length_r), " units squared."
+        put "The perimeter is " , r_per (width_r, length_r),  " units."
+    label : put  "Please input a shape listed."
+end case 
+
+%Homework Question 5
+%function
+function isArmstrong (number : string) : boolean
+    var number : string
+    var Number : real := 0
+    var final_number : real := 0
+    var armstrong : boolean := false
+    if strrealok (number) = true then
+        if strreal (number) < 10000 then
+            for i : 1 .. length (number)
+                Number += strreal (number (i) ** 3)
+            end for
+            final_number := Number (i)
+            armstrong := true
+        elsif
+            put "Please 
+        elsif
+            put "Please enter a number."
+        end if
+        result armstrong
+    end isArmstrong
+
+    %main program
+    var number : string
+
+    put "Enter a number. " ..
+    get number
+    put isArmstrong (number)
+
+%Homework Question 5
+%function
+function isArmstrong (max_number : real) : boolean
+    var final_number : real := 0
+    var armstrong : boolean := false
+    var maxi : real := 10000
+    var number : string 
+    for i : 1 .. 10000
+        put number
+        for j : 1 .. length (number)
+            final_number += strreal (number(j)) ** 3
+        end for
+    end for
+    result armstrong
+end isArmstrong
+
+%main program 
+
+put isArmstrong(10000)
