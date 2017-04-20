@@ -1,0 +1,136 @@
+%Homework Question 1 (incompleted)
+%scalene
+procedure isScalene (angle1 : real, angle2 : real, angle3 : real)
+    var scalene : boolean := false
+    if angle1 not= angle2 and angle2 not= angle3 and angle3 not= angle1 then
+        if angle1 + angle2 + angle3 = 180 then
+            scalene := true
+        else
+            put "Enter angles with total of 180 degrees."
+        end if
+    end if
+end isScalene
+
+%isoceles
+procedure isIsoceles (angle1 : real, angle2 : real, angle3 : real)
+    var isoceles : boolean := false
+    if angle1 = angle2 or angle2 = angle3 or angle3 = angle1 and angle1 not= angle2 or angle2 not= angle3 or angle3 not= angle1 then
+        if angle1 + angle2 + angle3 = 180 then
+            isoceles := true
+        else
+            put "Enter angles with total of 180 degrees."
+        end if
+    end if
+end isIsoceles
+
+%equilateral
+procedure isEquilateral (angle1 : real, angle2 : real, angle3 : real)
+    var equilateral : boolean := false
+    if angle1 = angle2 and angle2 = angle3 then
+        if angle1 + angle2 + angle3 = 180 then
+            equilateral := true
+        end if
+    end if
+end isEquilateral
+
+%main program
+var angle1, angle2, angle3 : real
+
+put "Enter three angles separated by a space. " ..
+get angle1, angle2, angle3
+if isScalene (angle1, angle2, angle3) = true then
+    put "It is a scalene triangle."
+elsif isIsoceles (angle1, angle2, angle3) = true then
+    put "It is an isoceles triangle."
+elsif isEquilateral(angle1, angle2, angle3) = true then
+    put "It is an equilateral triangle."
+end if 
+
+%Homework Question 2 
+%procedure 
+procedure maximum (number : int) 
+    var times_of_numbers : int := number
+    for i : 1 .. number 
+        for j : 1 .. i
+             put i .. 
+        end for 
+    end for 
+end maximum
+
+%main program
+var number: int 
+
+put "Enter an integer. " ..
+get number
+maximum (number) 
+
+%Homework Question 3 (incompleted)
+%procedure
+procedure Make_T (width : int, height : int)
+    for i : 1 .. width %width
+        put "*" ..
+        put "" 
+        for j : 1 .. height %height
+            put "*"
+            for k : 1 .. width div 2 - 1
+                put " "
+            end for
+        end for
+
+
+    end for
+
+end Make_T
+
+%main program
+var height : int
+var width : int
+
+put "Enter a height. " ..
+get height
+put "Enter an odd width. " ..
+get width
+if width mod 2 not= 0 then
+    Make_T (width, height)
+else
+    put "Please enter an odd width."
+end if
+
+%Homework Question 4
+%function 
+function isTrue (number1 : real, number2 : real) : boolean
+    var factor : boolean := false 
+    if number2 mod number1 = 0 then
+        factor := true 
+    end if 
+    result factor
+end isTrue 
+
+%main program
+var number1, number2 : real 
+
+put "Enter two numbers. " ..
+get number1, number2 
+put isTrue (number1, number2)
+
+%Homework Question 5
+%function
+function takes_away (word : string, character : char) : string
+    var new_word : string
+    for i : 1 .. length (word)
+        if index (word, character) = 0 then
+            new_word += word (i)
+        end if
+    end for
+    result new_word
+end takes_away
+
+%main program
+var word : string
+var character : char
+
+put "Enter a word. " ..
+get word
+put "Enter a character. " ..
+get character
+put takes_away (word, character)
