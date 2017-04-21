@@ -1,0 +1,34 @@
+%Homework Question 1 
+
+import GUI
+
+%procedure
+procedure yiners 
+    put "YINERS IS ELON MU$K!" 
+end yiners
+
+%main program
+
+var yiners_program : int := GUI.CreateButton (200, 170, 400, "YINERS IS ELON MUS$K!", yiners)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+
+%Homework Question 2
+
+import GUI
+
+%procedure
+procedure yiners 
+    put "YINERS IS ELON MU$K!" 
+end yiners
+
+%main program
+
+var yiners_program : int := GUI.CreateButton (300, 170, 400, "YINERS IS ELON MUS$K!", yiners)
+var quit_program : int := GUI.CreateButton (100, 170, 200, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
