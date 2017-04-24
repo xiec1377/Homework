@@ -1,0 +1,133 @@
+
+ %Homework Question 1
+import GUI
+
+var TextField1 : int
+var TextField2 : int
+const INCHES := 2.54
+
+procedure echoTextField (TextFieldContents : string)
+    var inches : real 
+    var new_inches : string 
+    if strrealok (TextFieldContents) then
+        inches := strreal (TextFieldContents) * INCHES
+        new_inches := realstr(inches, 0) 
+        GUI.SetText (TextField2, new_inches)
+    else
+        put "Enter a number. "
+    end if
+end echoTextField
+
+procedure setTextField (TextFieldContents : string)
+    var inches : real
+    var cent, new_inches : string
+    cent := GUI.GetText (TextField1)
+    if strrealok (cent) then
+        inches := strreal (cent) * INCHES
+        new_inches := realstr (inches, 0)
+    else
+        put "Enter a number. "
+    end if
+    GUI.SetText (TextField2, new_inches)
+end setTextField
+
+TextField1 := GUI.CreateTextField (100, 200, 100, "", echoTextField)
+
+var TextFieldLabel : int
+TextFieldLabel := GUI.CreateLabel (100, 200 + GUI.GetHeight (TextField1), "Cm :")
+
+TextField2 := GUI.CreateTextField(300, 200, 100, "", setTextField)
+var TextFieldLabel2 : int
+TextFieldLabel2 := GUI.CreateLabel (400, 200 + GUI.GetHeight (TextField2), "Inches :")
+
+var Quit : int
+Quit := GUI.CreateButton (250, 100, 100, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop 
+
+
+
+%Homework Question 2 
+import GUI
+
+var TextField1, TextField2 : int 
+
+procedure echoTextField (TextFieldContent : string)
+    var new_word : string := ""
+    for i : 1 .. length (TextFieldContent) 
+        if index ("aeiouAEIOU", TextFieldContent(i)) = 0 then
+            new_word += TextFieldContent(i)
+            GUI.SetText(TextField2, new_word)
+        end if 
+    end for 
+end echoTextField
+
+procedure setTextField (TextFieldContent : string)
+    var word : string 
+    var new_word : string := "" 
+    word := GUI.GetText(TextField1)
+    for i : 1 .. length (word) 
+        if index ("aeiouAEIOU", word(i)) = 0 then
+            new_word += word(i)
+        end if 
+    end for 
+    GUI.SetText (TextField2, new_word)
+end setTextField
+
+TextField1 := GUI.CreateTextField (100, 200, 100, "", echoTextField)
+var TextFieldLabel : int := GUI.CreateLabel (100, 200 + GUI.GetHeight (TextField1), "Enter a word:")
+
+TextField2 := GUI.CreateTextField (400, 200, 100, "", setTextField)
+var TextFieldLabel2 : int := GUI.CreateLabel (400, 200 + GUI.GetHeight (TextField2), "New word")
+var QuitButton : int := GUI.CreateButton (250, 100, 100, "QUIT", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent 
+end loop
+
+%Homework Question 3 
+import GUI
+
+var TextField1, TextField2 : int 
+
+procedure echoTextField (TextFieldContent : string) 
+    var new_number : string 
+    var new_numberN : real 
+    if strrealok(TextFieldContent) then
+        new_numberN := strreal (TextFieldContent)
+        new_numberN += 1 
+        new_number := realstr(new_numberN, 0)
+    else
+        put "Enter a number."
+    end if 
+    GUI.SetText (TextField2, new_number)
+end echoTextField 
+
+procedure setTextField (TextFieldContent : string)
+    var number, new_number : string
+    var new_numberN : real  
+    number := GUI.GetText(TextField1)
+    if strrealok(number) then
+        new_numberN := strreal (number)
+        new_numberN += 1 
+        new_number := realstr(new_numberN, 0)
+    else
+        put "Enter a number."
+    end if 
+    GUI.SetText(TextField2, new_number)
+end setTextField 
+
+TextField1 := GUI.CreateTextField (100, 200, 100, "", echoTextField)
+var TextFieldLabel : int := GUI.CreateLabel (100, 200 + GUI.GetHeight (TextField1), "Enter a number:")
+
+TextField2 := GUI.CreateTextField (400, 200, 100, "", setTextField)
+var TextFieldLabel2 : int := GUI.CreateLabel (400, 200 + GUI.GetHeight (TextField2), "New number:")
+
+var QuitButton : int := GUI.CreateButton (250, 100, 100, "QUIT", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop 
+    
