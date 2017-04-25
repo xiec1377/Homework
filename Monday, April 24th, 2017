@@ -1,0 +1,57 @@
+%Homework Question 1
+import GUI
+
+View.Set ("graphics:600;450")
+Window.Set (defWinId, "title:Temperature Converter")
+GUI.SetBackgroundColour (yellow)
+
+var TextField1, TextField2 : int
+var moveButton, moveButton2 : int
+var TextField1Button, TextField2Button : int
+var QuitButton : int
+var TextField1Label, TextField2Label : int
+const PLUS := 1.8
+
+procedure dummyProc (TextFieldContent : string)
+end dummyProc
+
+
+procedure moveToTextField2
+    var fahren : string
+    var fahrenN : real
+    var cel : string := GUI.GetText (TextField1)
+    if strrealok (cel) then
+        fahrenN := 32 + PLUS * strreal (cel) 
+        fahren := realstr (fahrenN, 0)
+    else
+        put "Enter a number."
+    end if
+    GUI.SetText (TextField2, fahren)
+end moveToTextField2
+
+procedure moveToTextField1
+    var fahren : string := GUI.GetText (TextField2)
+    var celN : real
+    var cel : string
+    if strrealok (fahren) then
+        celN := (strreal (fahren) - 32) * 5 / 9
+        cel := realstr (celN, 0)
+    else
+        put "Enter a number."
+    end if
+    GUI.SetText (TextField1, cel)
+end moveToTextField1
+
+TextField1 := GUI.CreateTextField (100, 200, 100, "", dummyProc)
+TextField1Label := GUI.CreateLabel (100, 200 + GUI.GetHeight (TextField1), "Celsius")
+
+TextField2 := GUI.CreateTextField (400, 200, 100, "", dummyProc)
+TextField2Label := GUI.CreateLabel (400, 200 + GUI.GetHeight (TextField2), "Fahrenheit")
+
+QuitButton := GUI.CreateButton (250, 200, 100, "QUIT", GUI.Quit)
+moveButton := GUI.CreateButton (250, 170, 100, "Convert -->", moveToTextField2)
+moveButton2 := GUI.CreateButton (250, 150, 100, "<-- Convert", moveToTextField1)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
