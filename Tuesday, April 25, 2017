@@ -1,0 +1,172 @@
+
+%Homework Question a)
+import GUI
+
+View.Set ("graphics:600;600")
+Window.Set (defWinId, "Let's play a game!")
+GUI.SetBackgroundColour (green)
+
+var game1, game2 : int 
+var button1, button2 : int 
+
+procedure GuessingGame
+end GuessingGame 
+
+procedure GrowingGame
+end GrowingGame 
+
+
+button1 := GUI.CreateButton (100, 200, 100, "Guessing Game", GuessingGame)
+button2 := GUI.CreateButton (100, 300, 100, "Growing Game", GrowingGame)
+
+loop
+    exit when GUI.ProcessEvent 
+end loop 
+
+
+%Homework Question b)
+import GUI
+
+View.Set ("graphics:650;600")
+Window.Set (defWinId, "title:Let's play a game!")
+
+var game1, game2, game3 : int
+var TextField1 : int
+var TextField1Label : int
+var button1, button2, button3 : int
+var clickcircle : int %button
+var clickme : int
+var game1guess : int
+var QuitButton : int
+var BackButton : int
+var numberN : int
+randint (numberN, 1, 100)
+var width, height : int
+const HEIGHTGROW := 15
+const WIDTHGROW := 150
+
+procedure back
+    cls
+    GUI.Refresh
+    height := HEIGHTGROW
+    width := WIDTHGROW
+    GUI.SetSize (clickme, width, height)
+    GUI.Hide (TextField1Label)
+    GUI.Hide (TextField1)
+    GUI.Hide (BackButton)
+    GUI.Hide (clickme)
+    GUI.Hide (clickcircle)
+    GUI.Show (button1)
+    GUI.Show (button2)
+    GUI.Show (button3)
+    GUI.Show (QuitButton)
+end back
+
+procedure GuessingGame
+    cls
+    GUI.Hide (button1)
+    GUI.Hide (button2)
+    GUI.Hide (button3)
+    GUI.Hide (clickme)
+    GUI.Hide (clickcircle)
+    GUI.Show (TextField1)
+    GUI.Show (TextField1Label)
+    GUI.Show (BackButton)
+    GUI.Show (QuitButton)
+end GuessingGame
+
+procedure echoTextField (TextFieldContent : string)
+    var number : string
+    var numberN : int 
+    var guessN : int
+    var guess : string
+    number := intstr (numberN)
+    guess := TextFieldContent
+    guessN := strint (guess)
+    numberN := strint (number)
+    if strintok (guess) then
+        if guessN = numberN then
+            put "Congratulations! You have guessed my number!"
+        elsif guessN > numberN then
+            put "Lower!"
+        elsif guessN < numberN then
+            put "Higher!"
+        end if
+    else
+        put "Please enter a number."
+    end if
+    GUI.SetText (TextField1, guess)
+end echoTextField
+
+procedure GrowingGame
+    cls
+    GUI.Refresh
+    GUI.Hide (button1)
+    GUI.Hide (button2)
+    GUI.Hide (button3)
+    GUI.Hide (TextField1)
+    GUI.Hide (TextField1Label)
+    GUI.Show (BackButton)
+    GUI.Show (clickme)
+    GUI.Hide (clickcircle)
+    GUI.Show (QuitButton)
+end GrowingGame
+
+procedure game2clickme
+    height += 10
+    width += 10
+    GUI.SetSize (clickme, width, height) %ALWAYS WIDTH BEFORE HEIGHT!
+    cls
+    GUI.Refresh
+end game2clickme
+
+procedure CircleGame
+    cls
+    GUI.Refresh
+    GUI.Hide (button1)
+    GUI.Hide (button2)
+    GUI.Hide (button3)
+    GUI.Hide (TextField1)
+    GUI.Hide (TextField1Label)
+    GUI.Hide (clickme)
+    GUI.Show (BackButton)
+    GUI.Show (clickcircle)
+    GUI.Show (QuitButton)
+end CircleGame
+
+procedure clickmecircle
+    var Colour : int
+    var circlex, circley, radius : int
+    randint (Colour, 0, 255)
+    randint (circlex, 1, maxx)
+    randint (circley, 1, maxy)
+    randint (radius, 1, 300)
+    drawfilloval (circlex, circley, radius, radius, Colour)
+    GUI.Refresh
+    GUI.Show (BackButton)
+    GUI.Show (QuitButton)
+    GUI.Show (clickcircle)
+end clickmecircle
+
+
+
+button1 := GUI.CreateButton (10, 100, 150, "Guessing Game", GuessingGame)
+TextField1 := GUI.CreateTextField (100, 300, 500, "", echoTextField)
+TextField1Label := GUI.CreateLabel (100, 300 + GUI.GetHeight (TextField1), "Take a guess!")
+
+button2 := GUI.CreateButton (160, 100, 150, "Growing Game", GrowingGame)
+clickme := GUI.CreateButton (250, 200, 150, "Click me!", game2clickme)
+
+button3 := GUI.CreateButton (310, 100, 150, "Circle Game", CircleGame)
+clickcircle := GUI.CreateButton (480, 160, 150, "Click me!", clickmecircle)
+
+QuitButton := GUI.CreateButton (480, 100, 150, "Quit", GUI.Quit)
+BackButton := GUI.CreateButton (480, 130, 150, "Back", back)
+
+back
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+
+
