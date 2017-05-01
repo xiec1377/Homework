@@ -1,0 +1,143 @@
+%Touque GUI Assignments Question 3
+var Circle : boolean := false
+var buttonnumber, buttonupdown : int
+var x : int := maxx
+var y : int := maxy
+var radius : int
+var button : int
+
+
+procedure circle
+    radius := maxx div 5
+    drawfilloval (x, y, radius, radius, red)
+end circle
+
+%main program
+put "Click on the screen!"
+loop
+    Mouse.ButtonWait ("up", x, y, buttonnumber, buttonupdown)
+    Circle := not Circle
+    if Circle then
+        circle
+    else
+        cls
+        put "Click on the screen!"
+    end if
+end loop
+
+%Touque GUI Assignments Question 3
+var Circle : boolean := false
+var buttonnumber, buttonupdown : int
+var x : int := maxx
+var y : int := maxy
+var radius : int
+var button : int
+var Colour : int 
+
+procedure circle
+    radius := maxx div 5
+    drawfilloval (x, y, radius, radius, Colour)
+end circle
+
+%main program
+put "Click on the screen!"
+loop
+    Mouse.ButtonWait ("up", x, y, buttonnumber, buttonupdown)
+    Circle := not Circle
+    if Circle then
+        randint (Colour, 0, 255)
+        circle
+    else
+        cls
+        put "Click on the screen!"
+    end if
+end loop
+
+%Touque GUI Assignments Question 3
+var Circle : boolean := false
+var buttonnumber, buttonupdown : int
+var x : int := maxx
+var y : int := maxy
+var radius : int
+var button : int
+var shape : int
+
+procedure circle
+    radius := maxx div 5
+    drawfilloval (x, y, radius, radius, purple)
+end circle
+
+procedure mapleleaf
+    drawfillmapleleaf (x - 100, y - 100, x + 100, y + 100, red)
+end mapleleaf
+
+procedure star
+    drawfillstar (x + 100, y + 100, x - 100, y - 100, yellow)
+end star
+
+%main program
+put "Click on the screen!"
+loop
+    Mouse.ButtonWait ("up", x, y, buttonnumber, buttonupdown)
+    Circle := not Circle
+    if Circle then
+        cls
+        randint (shape, 1, 3)
+        if shape = 1 then
+            circle
+        elsif shape = 2 then
+            mapleleaf
+        elsif shape = 3 then
+            star
+        end if
+
+        put "Click on the screen!"
+    end if
+end loop
+
+
+
+
+%Touque GUI Assignments Question 4
+var Circle : boolean := false
+var buttonnumber, buttonupdown : int
+var x : int := maxx
+var y : int := maxy
+var radius : int
+var button : int
+var Colour : int
+var shape : int
+
+procedure circle
+    radius := maxx div 5
+    drawfilloval (x, y, radius, radius, Colour)
+end circle
+
+procedure mapleleaf
+    drawfillmapleleaf (x - 100, y - 100, x + 100, y + 100, Colour)
+end mapleleaf
+
+procedure star
+    drawfillstar (x + 100, y + 100, x - 100, y - 100, Colour)
+end star
+
+%main program
+put "Click on the screen!"
+loop
+    Mouse.ButtonWait ("up", x, y, buttonnumber, buttonupdown)
+    Circle := not Circle
+    if Circle then
+        randint (Colour, 0, 255)
+        cls
+        randint (shape, 1, 3)
+        if shape = 1 then
+            circle
+        elsif shape = 2 then
+            mapleleaf
+        elsif shape = 3 then
+            star
+        end if
+
+        put "Click on the screen!"
+    end if
+end loop
