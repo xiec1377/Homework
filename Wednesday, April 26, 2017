@@ -1,0 +1,39 @@
+
+April 26, 2017 
+setscreen ("graphics")
+
+% draw outline of face, to make a thick line make a solid black circle and then overwrite 
+% the inside with white, notice we use ovals with the x and y radius the same to create
+
+% circles
+drawfilloval(200, 200, 80, 80, black)
+drawfilloval(200, 200, 75, 75, white)
+
+% eyes
+drawfilloval(175, 225, 4, 4, yellow)
+drawfilloval(225, 225, 4, 4, yellow)
+drawline (225, 250, 
+
+% nose
+drawline(198, 210, 203, 195, black)
+drawline(198, 195, 203, 195, black)
+
+% mouth
+drawarc(200, 150, 25, 20, 360, 180, green) %360 = starting angle, 180 = ending angle
+drawarc (120, 200, 15, 10, 90, 270, red)
+drawarc (280, 200, 15, 10, 270, 90, red)
+
+April 28, 2017
+%Touque GUI Assignments Question 3
+var Circle : boolean := false
+var buttonnumber, buttonupdown : int
+var x : int := maxx
+var y : int := maxy
+var radius : int
+var button : int
+
+
+procedure circle
+    radius := maxx div 5
+    drawfilloval (x, y, radius, radius, red)
+end circle
