@@ -1,0 +1,168 @@
+%Homework Question 1
+import GUI
+
+View.Set ("graphics:600;600")
+GUI.SetBackgroundColour (grey)
+
+var TextField1, TextField2 : int
+var TextField1Label, TextField2Label : int
+var UpperButton : int
+
+procedure dummyProc (TextFieldContent : string)
+end dummyProc
+
+procedure movetoTextField2
+    var new_word : string := ""
+    var number : int
+    var word : string := GUI.GetText (TextField1)
+    for i : 1 .. length (word)
+        if word (i) > "a" and word < "z" then
+            number := ord (word (i)) - ord ("a") + ord ("A")
+            new_word += chr (number)
+        else
+            new_word += word (i)
+        end if
+    end for
+    GUI.SetText (TextField2, new_word)
+end movetoTextField2
+
+TextField1 := GUI.CreateTextField (100, 400, 300, "", dummyProc)
+TextField1Label := GUI.CreateLabel (100, 400 + GUI.GetHeight (TextField1), "Enter word: ")
+TextField2 := GUI.CreateTextField (100, 200, 300, "", dummyProc)
+TextField2Label := GUI.CreateLabel (100, 200 + GUI.GetHeight (TextField2), "New word: ")
+UpperButton := GUI.CreateButton (250, 300, 150, "Change", movetoTextField2)
+
+
+
+loop
+    exit when GUI.ProcessEvent
+end loop
+
+%Homework Question 2 
+import GUI
+
+View.Set ("graphics:600;600")
+GUI.SetBackgroundColour (grey)
+
+var button1, button2, button3 : int 
+var disbutton : int 
+
+%procedures 
+procedure Button1 
+    cls
+    GUI.Refresh
+    randint (disbutton, 1, 3)
+    if disbutton = 1 then
+        GUI.Hide (button1)
+    elsif disbutton = 2 then
+        GUI.Hide (button2)
+    elsif disbutton = 3 then
+        GUI.Hide (button3)
+    end if 
+end Button1 
+
+procedure Button2
+    cls
+    GUI.Refresh
+    randint (disbutton, 1, 3)
+    if disbutton = 1 then
+        GUI.Hide (button1)
+    elsif disbutton = 2 then
+        GUI.Hide (button2)
+    elsif disbutton = 3 then
+        GUI.Hide (button3)
+    end if 
+end Button2
+
+procedure Button3
+    cls
+    GUI.Refresh
+    randint (disbutton, 1, 3)
+    if disbutton = 1 then
+        GUI.Hide (button1)
+    elsif disbutton = 2 then
+        GUI.Hide (button2)
+    elsif disbutton = 3 then
+        GUI.Hide (button3)
+    end if 
+end Button3
+
+%main program
+button1 := GUI.CreateButton (100, 300, 150, "Click me", Button1)
+button2 := GUI.CreateButton (300, 300, 150, "Click me", Button2)
+button3 := GUI.CreateButton (500, 300, 150, "Click me", Button3)
+
+loop
+    exit when GUI.ProcessEvent
+end loop 
+
+%Homework Question 2 
+import GUI
+
+View.Set ("graphics:750;600")
+GUI.SetBackgroundColour (grey)
+
+var button1, button2, button3 : int 
+var disbutton : int 
+
+%procedures 
+procedure Button1 
+    cls
+    GUI.Refresh
+    GUI.SetBackgroundColour (grey)
+    GUI.Show (button1)
+    GUI.Show (button2)
+    GUI.Show (button3)
+    randint (disbutton, 1, 3)
+    if disbutton = 1 then
+        GUI.Hide (button1)
+    elsif disbutton = 2 then
+        GUI.Hide (button2)
+    elsif disbutton = 3 then
+        GUI.Hide (button3)
+    end if 
+end Button1 
+
+procedure Button2
+    cls
+    GUI.Refresh
+    GUI.SetBackgroundColour (grey)
+    GUI.Show (button1)
+    GUI.Show (button2)
+    GUI.Show (button3)
+    randint (disbutton, 1, 3)
+    if disbutton = 1 then
+        GUI.Hide (button1)
+    elsif disbutton = 2 then
+        GUI.Hide (button2)
+    elsif disbutton = 3 then
+        GUI.Hide (button3)
+    end if 
+end Button2
+
+procedure Button3
+    cls
+    GUI.Refresh
+    GUI.SetBackgroundColour (grey)
+    GUI.Show (button1)
+    GUI.Show (button2)
+    GUI.Show (button3)
+    randint (disbutton, 1, 3)
+    if disbutton = 1 then
+        GUI.Hide (button1)
+    elsif disbutton = 2 then
+        GUI.Hide (button2)
+    elsif disbutton = 3 then
+        GUI.Hide (button3)
+    end if 
+end Button3
+
+%main program
+button1 := GUI.CreateButton (100, 300, 150, "Click me", Button1)
+button2 := GUI.CreateButton (300, 300, 150, "Click me", Button2)
+button3 := GUI.CreateButton (500, 300, 150, "Click me", Button3)
+
+loop
+    exit when GUI.ProcessEvent
+end loop 
+
