@@ -1,0 +1,23 @@
+%Homework Question 1
+var items : array 1 .. 10 of string
+var number_items : array 1 .. 10 of int
+
+for i : 1 .. 10
+    get items (i) : *
+    get number_items (i)
+end for
+
+put items (3)
+put number_items (3)
+
+%Homework Question 3
+var sum : array 2 .. 12 of int 
+var number_times : array 1 .. 50 of int 
+var roll1, roll2 : int 
+
+
+for i : 2 .. 12 %sum
+    randint (roll1, 1, 6)
+    randint (roll2, 1, 6)
+    sum (i) := roll1 + roll2
+end for 
