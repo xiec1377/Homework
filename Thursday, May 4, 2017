@@ -1,0 +1,69 @@
+%Homework Question 1
+var temperature : array 1 .. 10 of real
+
+for decreasing j : 10 .. 1
+    put "What was the daily high temperature ", j, " day(s) ago? " ..
+    get temperature (j)
+end for
+
+%Homework Question 1.a)
+var temperature : array 1 .. 10 of real
+
+for i : 1 .. 10
+    put "What was the daily high temperature on day ", i, "? " ..
+    get temperature (i)
+end for
+
+put "The temperatures in reverse are : " ..
+for decreasing i : 10 .. 1
+    put temperature (i), " " .. 
+end for
+
+%Homework Question 1.b)
+var temperature : array 1 .. 10 of real
+var Temperature : real := 0
+const TEN := 10
+
+for i : 1 .. 10
+    put "What was the daily high temperature on day ", i, "? " ..
+    get temperature (i)
+    Temperature += temperature (i)
+end for
+Temperature /= TEN
+
+put "The temperatures in reverse are : " ..
+for decreasing i : 10 .. 1
+    put temperature (i), " " ..
+end for
+
+put ""
+put "The average of these temperatures is ", Temperature, "."
+
+%Homework Question 1.c)
+var temperature : array 1 .. 10 of real
+var Temperature : real := 0
+var highest : real
+const TEN := 10
+
+for i : 1 .. 10
+    put "What was the daily high temperature on day ", i, "? " ..
+    get temperature (i)
+    Temperature += temperature (i)
+end for
+Temperature /= TEN
+
+for i : 1 .. 10
+    highest := temperature (i)
+    if highest < temperature (i) then
+        highest := temperature (i)
+    end if
+end for
+
+put "The temperatures in reverse are : " ..
+for decreasing i : 10 .. 1
+    put temperature (i), " " ..
+end for
+
+put ""
+put "The average of these temperatures is ", Temperature, "."
+put "The highest temperature is ", highest, "."
