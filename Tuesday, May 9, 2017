@@ -1,0 +1,27 @@
+%Homework Question 2
+var current_smallest, largest, current : string
+var list : array 1 .. count of string
+var newlist : array 1 .. count of string
+var where : int
+
+for i : 1 .. count %number of words
+    get list (i)
+end for
+largest := list (1)
+for i : 2 .. count
+    if current (1) > current_smallest (1) then
+        largest := current
+    end if
+end for
+
+for i : 1 .. count
+    current_smallest := list (1)
+    for j : 1 .. count
+        if list (j) <= current_smallest then
+            current_smallest := list (j)
+            where := j
+        end if
+    end for
+    newlist (i) := current_smallest
+    list (where) := largest + 1
+end for
