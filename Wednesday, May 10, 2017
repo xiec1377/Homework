@@ -1,0 +1,29 @@
+%Homework Question 1
+var count : int
+get count
+
+var original_list : array 1 .. count of string
+var new_list : array 1 .. count of string
+var previous_number : string
+var where : string
+
+
+for i : 1 .. count %list of words
+    get original_list (i)
+    if strintok (original_list (i)) then
+        previous_number := original_list (1)
+        new_list (i) := previous_number
+        where := original_list (1)
+        if previous_number not= original_list (i) then
+            new_list (i) += original_list (i)
+            where := original_list (i)
+        end if
+    else
+        put "Enter a number."
+    end if
+end for
+
+for i : 1 .. count
+
+    put "Your new list is ", new_list (i), "."
+end for
