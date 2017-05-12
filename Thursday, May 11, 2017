@@ -1,0 +1,30 @@
+%Homework Question 1
+var count : int
+get count
+
+var list : array 1 .. count of int
+var smallest : int
+var where : int
+var current : int
+
+for i : 1 .. count
+    get list (i)
+end for
+
+for i : 1 .. count %where in current list
+    current := list (i)
+    smallest := list (i)
+    for j : i .. count %where in old list
+        if list (j) <= smallest then
+            smallest := list (j)
+            where := j
+        end if
+    end for
+    list (i) := smallest %swapping 
+    list (where) := current %swapping 
+end for
+
+for i : 1 .. count
+    put list (i)
+end for
+
