@@ -1,0 +1,217 @@
+June 13, 2017 
+%Selection
+%p. 174          1, 3, 6, 7, 11, 14, 15, 16
+ 
+%Strings
+%p. 204          1, 2, 5, 6, 7, 8, 10, 11, 13
+ 
+%Textbook pg. 174 #1
+%Declaring
+var amount_of_students : int
+var lastname : string
+ 
+%Input
+put "How many students are in the class? " ..
+get amount_of_students
+for i : 1 .. amount_of_students
+    put "Enter your last name. " ..
+    get lastname : *
+    if lastname (1) >= "A" and lastname (1) <= "H" then
+        put "You are in the A to H group."
+    elsif lastname (1) >= "I" and lastname <= "Z" then
+        put "You are in the I to Z group."
+    end if
+end for 
+ 
+%Textbook pg. 174 #3
+%Declaring
+var amount_of_athletes : int
+var weight : real
+ 
+%Input 
+put "How many athletes are there? " ..
+get amount_of_athletes 
+for i : 1 .. amount_of_athletes
+    put "How many kg do you weight? " ..
+    get weight 
+    if weight > 80 then
+        put "You are heavy-weight." 
+    elsif weight >= 60 and weight <= 80 then
+        put "You are medium weight."
+    elsif weight < 60 then
+        put "You are light-weight."
+    end if 
+end for 
+ 
+%Textbook pg. 174 #6
+%Declaring
+var occasion : string 
+ 
+put "What occasion for the greeting? Formal, casual or slang? " ..
+get occasion
+case occasion of 
+    label "formal", "Formal" : 
+        put "Hello sir/madame. How are you this fine evening?"
+    label "casual", "Casual" :
+        put "Hey, bud! What's up?"
+    label "slang", "Slang" : 
+        put "Yo! S'up, I ain't gonna reach the duke's crib styll."
+end case 
+ 
+%Textbook pg. 175 #11
+%Declaring
+var amount_of_tests : int 
+var mark : int 
+%Initializing 
+var percentage : real := 0
+const PERCENT := 100
+ 
+put "How many tests do you have? " ..
+get amount_of_tests 
+for i : 1 .. amount_of_tests 
+    put "What did you get out of 10? " ..
+    get mark 
+    case mark of
+        label 10 : 
+            put "You got an A! Perfect!"
+            percentage := 10 / 10 * PERCENT 
+            put "You got ", percentage, "%!"
+        label 9 :
+            put "You got an A! Nice!"
+            percentage := 9 / 10 * PERCENT 
+            put "You got ", percentage, "%"
+        label 7 :
+            put "You got a B." 
+            percentage := 7 / 10 * PERCENT 
+            put "You got ", percentage, "%."
+        label 6 : 
+            put "You got a C."
+            percentage := 6 / 10 * PERCENT 
+            put "You got ", percentage, "%."
+        label 5 : 
+            put "You got a D."
+            percentage := 5 / 10 * PERCENT 
+            put "You got ", percentage, "%."
+        label 0, 1, 2, 3, 4 : 
+            put "You got an F. Do better next time."
+            put "Your percentage is below 50%."
+    end case 
+end for 
+ 
+%Textbook pg. 176 #14 ? 
+%Declaring
+for i : 1 .. 50 by 2
+    if i mod 2 not= 0 then
+        if i mod 3 not= 0 then
+            if i mod 5 not= 0 then
+                if i mod 7 not= 0 then
+                    delay (500)
+                    put i
+                end if
+            end if
+        end if
+    end if
+end for
+ 
+ 
+%Textbook pg. 176 #15
+%Declaring
+var highest_mark, lowest_mark : real
+var mark : real
+ 
+put "Enter a mark (%). " ..
+get mark
+highest_mark := mark
+lowest_mark := mark
+for i : 1 .. 9
+    put "Enter a mark (%). " ..
+    get mark 
+    if mark > highest_mark then
+        highest_mark := mark
+    elsif mark < lowest_mark then
+        lowest_mark := mark 
+    end if 
+end for 
+%output
+put "The highest mark is ", highest_mark, "%."
+put "The lowest mark is ", lowest_mark, "%."
+ 
+%Textbook pg. 176 #16
+%Declaring
+var integer : int 
+%initializing 
+var product : int 
+ 
+loop
+    put "Enter an integer. " ..
+    get integer 
+    exit when integer = -1 
+    product := integer 
+    product *= integer 
+end loop
+%ouput 
+put "The product of the integers is ", product, "."
+    
+ 
+%Textbook pg. 204 #1
+%Declaring
+var word : string
+%initializing
+var amount_of_words : int := 0
+var average : int := 0
+const TEN := 10
+ 
+for i : 1 .. 10 %number of words
+    put "Enter a word. " ..
+    get word
+    for j : 1 .. length (word)
+        amount_of_words += 1
+        average := amount_of_words
+        average += amount_of_words
+    end for
+end for
+average := average div TEN
+put "The average letters in every word is ", average, " words."
+ 
+ 
+%Textbook pg. 204 #2
+%Declaring
+var word : string
+ 
+loop
+    put "Enter a word. " ..
+    get word 
+    if length (word) > 1 then
+        put word (1), word(*)
+    else
+        put "Your word only has one letter."
+    end if 
+end loop 
+ 
+%Textbook pg. 204 #6
+var word : string
+ 
+loop
+    put "Enter a word. " ..
+    get word
+    for decreasing j : length (word) .. 1
+        put word (j) ..
+    end for
+    put ""
+end loop
+ 
+ %Textbook pg. 204 #7, 8, 10, 11, 13
+var middle_letter : string
+var word : string
+ 
+loop
+    put "Enter a word. " ..
+    get word
+    if length (word) mod 2 = 0 then
+        put "The word you have entered has an even number of letters."
+    elsif length (word) mod 2 not= 0 then
+        middle_letter := intstr(length (word) div 2)
+        put "The middle letter of the word you entered is ", middle_letter, "."
+    end if
+end loop
+ 
