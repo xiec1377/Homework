@@ -1,0 +1,81 @@
+June 14, 2017 
+ 
+Arrays
+p. 255          2, 3, 10, 11, 13, 15, 17
+
+Subprograms
+p. 294          2, 5, 6, 8, 13, 16, 18
+
+
+%Textbook page 255 #2
+%Declaring variables 
+var amount_of_heights : int 
+var average_height : real := 0 
+ 
+put "How many heights? " ..
+get amount_of_heights 
+var heights : array 1 .. amount_of_heights of real 
+for i : 1 .. amount_of_heights 
+    put "Enter a height. " ..
+    get heights (i)
+    average_height += heights (i)
+end for 
+average_height /= amount_of_heights
+put "The average height is " , average_height : 2 , " units."
+ 
+ 
+%Textbook page 255 #3 ?
+%Declaring variables
+var amount_of_integers : int
+var current, smallest, where : int
+var middle, middle2 : int
+var average : int := 0 
+ 
+put "How many integers? " ..
+get amount_of_integers
+var integers : array 1 .. amount_of_integers of int
+for i : 1 .. amount_of_integers %going down the list
+    put "Enter an integer. " ..
+    get integers (i)
+ 
+ 
+end for
+ 
+for i : 1 .. amount_of_integers
+    current := integers (i)
+    smallest := integers (i)
+    for j : i .. amount_of_integers
+        if integers (j) <= smallest then
+            smallest := integers (j)
+            where := j
+        end if
+    end for
+    integers (i) := smallest
+    integers (where) := current
+end for
+ 
+for i : 1 .. amount_of_integers
+    put integers (i), " " ..
+end for
+ 
+if amount_of_integers mod 2 not= 0 then
+    middle := amount_of_integers div 2
+    put ""
+    put "The median is ", integers (middle),"."
+else
+    middle := amount_of_integers div 2 
+    average := (integers (middle) + (integers (middle) + 1)) div amount_of_integers
+    put "" 
+    put "The median is ", average, "."
+end if 
+ 
+ 
+%Textbook pg 257 #10?
+%Declaring 
+var amount_of_numbers : int 
+ 
+put "How many numbers? " ..
+get amount_of_numbers  
+var numbers : array 1 .. amount_of_numbers of int 
+for i : 1 .. amount_of_numbers 
+    randint (numbers (i), 1, 100)
